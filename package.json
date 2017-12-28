@@ -4,5 +4,15 @@
   "main": "index.js",
   "repository": "git@sgithub.com:chen8ih/xtshop-admin.git",
   "author": "chenhang",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "morgan": "^1.9.0",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "mysql": "^2.15.0"
+  }
 }

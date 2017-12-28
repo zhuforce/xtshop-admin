@@ -1,0 +1,8 @@
+{
+  "name": "xtshop-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@sgithub.com:chen8ih/xtshop-admin.git",
+  "author": "chenhang",
+  "license": "MIT"
+}

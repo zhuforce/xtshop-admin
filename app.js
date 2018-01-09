@@ -5,6 +5,23 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+
+//使用 GraphQL Schema创建一个 schema
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+//root 提供所有API入口端点相应的解析器函数
+var root = {
+  hello: () => {
+    return 'Hello World!';
+  }
+};
+
 var routes = require('./routes/index');
 
 var app = express();
@@ -22,6 +39,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true
+}))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
